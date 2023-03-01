@@ -1,5 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React from 'react'
+import MenuComponent from '../Components/MenuComponent';
 
 const HomeScreen = () => {
     const data = [
@@ -44,10 +45,43 @@ const HomeScreen = () => {
         </View>
       ))}
       </ScrollView>
+      <MenuComponent />
+      <View style={{ padding: 10 }}>
+    <Image
+      style={styles.bottomImages}
+      source={{
+        uri: "https://api.dominos.co.in/prod-olo-api/images/flashBanner/Dominos_Howzzat_IPL-2021_Menu.jpg",
+      }}
+    />
+  </View>
+
+  <View style={{ padding: 10 }}>
+    <Image
+      style={styles.bottomImages}
+      source={{
+        uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel9.png",
+      }}
+    />
+  </View>
+
+  <View style={{ padding: 10 }}>
+    <Image
+      style={styles.bottomImages}
+      source={{
+        uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel13.png",
+      }}
+    />
+  </View>
     </SafeAreaView>
   )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    bottomImages: {
+        width: "100%",
+        height: 120,
+        borderRadius: 7,
+    }
+})
