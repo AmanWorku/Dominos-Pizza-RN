@@ -1,8 +1,10 @@
 import { SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React from 'react'
 import MenuComponent from '../Components/MenuComponent';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
+    
     const data = [
         {
           id: "0",

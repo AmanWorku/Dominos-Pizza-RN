@@ -1,12 +1,13 @@
 import { Pressable, StyleSheet, Text, View, Image} from 'react-native'
 import React from 'react'
-
+import { useNavigation } from '@react-navigation/native';
 const MenuComponent = () => {
+    const navigation = useNavigation();
   return (
     <View style={{padding: 10}}>
       <Text style={{fontSize: 17, fontWeight:'bold'}}>Explore Menu</Text>
       <Pressable style={styles.menuPressable}>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate("Pizza")}>
         <Image
             style={{ width: 80, height: 80, borderRadius: 40 }}
             source={{
