@@ -8,7 +8,7 @@ const PizzaComponent = ({ pizza }) => {
 	return (
 		<View>
 			{data.map((item, index) => (
-				<Pressable>
+				<Pressable style={{ borderEndColor: "#AFD8F5", borderWidth: 0.1 }}>
 					<Image
 						style={{ height: 200, aspectRatio: 5 / 5, resizeMode: "cover" }}
 						source={{ uri: item.image }}
@@ -27,10 +27,13 @@ const PizzaComponent = ({ pizza }) => {
 								alignItems: "center",
 								marginTop: 10,
 							}}>
-							<ModalDropdown
-								dropdownStyle={{ width: 60, height: 100 }}
-								style={{ width: 60 }}
-								options={options}></ModalDropdown>
+							<View>
+								<Text style={{ color: "white", fontSize: 15 }}>Size</Text>
+								<ModalDropdown
+									dropdownStyle={{ width: 60, height: 100 }}
+									style={{ width: 60 }}
+									options={options}></ModalDropdown>
+							</View>
 							<Pressable
 								style={{
 									backgroundColor: "#03C03C",
@@ -38,7 +41,9 @@ const PizzaComponent = ({ pizza }) => {
 									marginLeft: 15,
 									borderRadius: 4,
 								}}>
-								<Text>Add To Cart</Text>
+								<Text style={{ color: "white", fontWeight: "bold" }}>
+									Add To Cart
+								</Text>
 							</Pressable>
 						</Pressable>
 					</View>
