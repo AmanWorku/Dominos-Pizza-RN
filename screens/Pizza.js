@@ -7,7 +7,7 @@ import pizzaMania from "../data/pizzaMania";
 import { useNavigation } from "@react-navigation/native";
 const Pizza = () => {
 	const data = pizzaMania;
-	const navigation = useNavigation();
+    const navigation = useNavigation();
 	return (
 		<SafeAreaView>
 			<Ionicons

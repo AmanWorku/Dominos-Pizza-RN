@@ -1,10 +1,12 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import ModalDropdown from "react-native-modal-dropdown";
+import { CartItems } from "../Context";
 
 const PizzaComponent = ({ pizza }) => {
 	const options = ["Regular", "Medium", "Large"];
 	const data = [pizza];
+	const { cart, setCart } = useContext(CartItems);
 	return (
 		<View>
 			{data.map((item, index) => (
@@ -15,7 +17,7 @@ const PizzaComponent = ({ pizza }) => {
 					/>
 					<View style={{ backgroundColor: "#006491", padding: 10 }}>
 						<Text style={{ fontSize: 17, fontWeight: "bold", color: "white" }}>
-							{item.name.substr(0, 15) + "..."}
+							{item.name.substr(0, 14)}
 						</Text>
 						<Text style={{ color: "pink", marginTop: 4 }}>
 							{item.description.substr(0, 25) + "..."}
@@ -35,6 +37,7 @@ const PizzaComponent = ({ pizza }) => {
 									options={options}></ModalDropdown>
 							</View>
 							<Pressable
+								onPress={() => setCart([...cart, item])}
 								style={{
 									backgroundColor: "#03C03C",
 									padding: 5,

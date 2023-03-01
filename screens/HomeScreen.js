@@ -39,43 +39,45 @@ const HomeScreen = () => {
       ];
       
   return (
-    <SafeAreaView>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {data.map((item,key) => (
-        <View key={key} style={{margin:10}}>
-            <Image style={{width:220, height:130}} source={{uri:item.image}}></Image>
-        </View>
-      ))}
-      </ScrollView>
-      <MenuComponent />
-      <View style={{ padding: 10 }}>
-    <Image
-      style={styles.bottomImages}
-      source={{
-        uri: "https://api.dominos.co.in/prod-olo-api/images/flashBanner/Dominos_Howzzat_IPL-2021_Menu.jpg",
-      }}
-    />
-  </View>
+		<SafeAreaView>
+			<ScrollView horizontal showsHorizontalScrollIndicator={false}>
+				{data.map((item, key) => (
+					<View key={key} style={{ margin: 10 }}>
+						<Image
+							style={{ width: 220, height: 130, borderRadius: 10 }}
+							source={{ uri: item.image }}></Image>
+					</View>
+				))}
+			</ScrollView>
+			<MenuComponent />
+			<View style={{ padding: 10 }}>
+				<Image
+					style={styles.bottomImages}
+					source={{
+						uri: "https://api.dominos.co.in/prod-olo-api/images/flashBanner/Dominos_Howzzat_IPL-2021_Menu.jpg",
+					}}
+				/>
+			</View>
 
-  <View style={{ padding: 10 }}>
-    <Image
-      style={styles.bottomImages}
-      source={{
-        uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel9.png",
-      }}
-    />
-  </View>
+			<View style={{ padding: 10 }}>
+				<Image
+					style={styles.bottomImages}
+					source={{
+						uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel9.png",
+					}}
+				/>
+			</View>
 
-  <View style={{ padding: 10 }}>
-    <Image
-      style={styles.bottomImages}
-      source={{
-        uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel13.png",
-      }}
-    />
-  </View>
-    </SafeAreaView>
-  )
+			<View style={{ padding: 10 }}>
+				<Image
+					style={styles.bottomImages}
+					source={{
+						uri: "https://www.dominos.co.in/theme2/front/images/voucherimages/carousel13.png",
+					}}
+				/>
+			</View>
+		</SafeAreaView>
+	);
 }
 
 export default HomeScreen
