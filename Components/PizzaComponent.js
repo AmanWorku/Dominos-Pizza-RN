@@ -22,13 +22,7 @@ const PizzaComponent = ({ pizza }) => {
 						<Text style={{ color: "pink", marginTop: 4 }}>
 							{item.description.substr(0, 25) + "..."}
 						</Text>
-						<Pressable
-							style={{
-								marginTop: 5,
-								flexDirection: "row",
-								alignItems: "center",
-								marginTop: 10,
-							}}>
+						<Pressable style={styles.cartBottom}>
 							<View>
 								<Text style={{ color: "white", fontSize: 15 }}>Size</Text>
 								<ModalDropdown
@@ -59,5 +53,11 @@ const styles = StyleSheet.create({
 		padding: 5,
 		marginLeft: 15,
 		borderRadius: 4,
+	},
+	cartBottom: {
+		marginTop: 5,
+		flexDirection: "row",
+		alignItems: "center",
+		marginTop: 10,
 	},
 });
