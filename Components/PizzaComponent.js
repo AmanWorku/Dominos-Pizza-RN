@@ -38,12 +38,7 @@ const PizzaComponent = ({ pizza }) => {
 							</View>
 							<Pressable
 								onPress={() => setCart([...cart, item])}
-								style={{
-									backgroundColor: "#03C03C",
-									padding: 5,
-									marginLeft: 15,
-									borderRadius: 4,
-								}}>
+								style={styles.cartButton}>
 								<Text style={{ color: "white", fontWeight: "bold" }}>
 									Add To Cart
 								</Text>
@@ -58,4 +53,11 @@ const PizzaComponent = ({ pizza }) => {
 
 export default PizzaComponent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	cartButton: {
+		backgroundColor: "#03C03C",
+		padding: 5,
+		marginLeft: 15,
+		borderRadius: 4,
+	},
+});
