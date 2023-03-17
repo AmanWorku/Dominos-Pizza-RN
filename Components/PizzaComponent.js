@@ -8,6 +8,18 @@ const PizzaComponent = ({ pizza }) => {
 	const data = [pizza];
 	const { cart, setCart } = useContext(CartItems);
 	const [selected, setSelected] = useState(false);
+	const [addItems, setAddItems] = useState(0);
+	const addToCart = () => {
+		setSelected(true);
+		const ItemPresent = cart.find((item) => item.id === pizza.id);
+
+		if (ItemPresent) {
+		} else {
+		}
+	};
+
+	const removeFromCart = () => {};
+
 	return (
 		<View>
 			{data.map((item, index) => (
@@ -31,65 +43,63 @@ const PizzaComponent = ({ pizza }) => {
 									style={{ width: 60 }}
 									options={options}></ModalDropdown>
 							</View>
-							{selected ? ( <Pressable
-                  style={{
-                    backgroundColor: "#03C03C",
-                    padding: 2,
-                    marginLeft: 15,
-                    borderRadius: 4,
+							{selected ? (
+								<Pressable
+									style={{
+										backgroundColor: "#03C03C",
+										padding: 2,
+										marginLeft: 15,
+										borderRadius: 4,
 
-                    flexDirection: "row",
-                    alignItems: "center",
-                  }}
-                >
-                  <Pressable onPress={removeFromCart}>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        color: "white",
-                        paddingHorizontal: 10,
+										flexDirection: "row",
+										alignItems: "center",
+									}}>
+									<Pressable onPress={removeFromCart}>
+										<Text
+											style={{
+												fontSize: 20,
+												color: "white",
+												paddingHorizontal: 10,
 
-                        fontWeight: "600",
-                      }}
-                    >
-                      -
-                    </Text>
-                  </Pressable>
+												fontWeight: "600",
+											}}>
+											-
+										</Text>
+									</Pressable>
 
-                  <Pressable>
-                    <Text
-                      style={{
-                        fontSize: 18,
-                        color: "white",
-                        paddingHorizontal: 5,
-                        fontWeight: "600",
-                      }}
-                    >
-                      {additems}
-                    </Text>
-                  </Pressable>
+									<Pressable>
+										<Text
+											style={{
+												fontSize: 18,
+												color: "white",
+												paddingHorizontal: 5,
+												fontWeight: "600",
+											}}>
+											{additems}
+										</Text>
+									</Pressable>
 
-                  <Pressable onPress={addToCart}>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        color: "white",
-                        paddingHorizontal: 10,
-                        fontWeight: "600",
-                      }}
-                    >
-                      +
-                    </Text>
-                  </Pressable>
-                </Pressable>) : ()
-							}
-							<Pressable
-								onPress={() => setCart([...cart, item])}
-								style={styles.cartButton}>
-								<Text style={{ color: "white", fontWeight: "bold" }}>
-									Add To Cart
-								</Text>
-							</Pressable>
+									<Pressable onPress={addToCart}>
+										<Text
+											style={{
+												fontSize: 20,
+												color: "white",
+												paddingHorizontal: 10,
+												fontWeight: "600",
+											}}>
+											+
+										</Text>
+									</Pressable>
+								</Pressable>
+							) : (
+								<Pressable
+									onPress={() => setCart([...cart, item])}
+									style={styles.cartButton}>
+									<Text style={{ color: "white", fontWeight: "bold" }}>
+										Add To Cart
+									</Text>
+								</Pressable>
+							)}
 						</Pressable>
 					</View>
 				</Pressable>
