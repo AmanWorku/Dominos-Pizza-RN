@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ModalDropdown from "react-native-modal-dropdown";
 import { CartItems } from "../Context";
 
@@ -7,6 +7,7 @@ const PizzaComponent = ({ pizza }) => {
 	const options = ["Regular", "Medium", "Large"];
 	const data = [pizza];
 	const { cart, setCart } = useContext(CartItems);
+	const [selected, setSelected] = useState(false);
 	return (
 		<View>
 			{data.map((item, index) => (
@@ -30,6 +31,58 @@ const PizzaComponent = ({ pizza }) => {
 									style={{ width: 60 }}
 									options={options}></ModalDropdown>
 							</View>
+							{selected ? ( <Pressable
+                  style={{
+                    backgroundColor: "#03C03C",
+                    padding: 2,
+                    marginLeft: 15,
+                    borderRadius: 4,
+
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <Pressable onPress={removeFromCart}>
+                    <Text
+                      style={{
+                        fontSize: 20,
+                        color: "white",
+                        paddingHorizontal: 10,
+
+                        fontWeight: "600",
+                      }}
+                    >
+                      -
+                    </Text>
+                  </Pressable>
+
+                  <Pressable>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        color: "white",
+                        paddingHorizontal: 5,
+                        fontWeight: "600",
+                      }}
+                    >
+                      {additems}
+                    </Text>
+                  </Pressable>
+
+                  <Pressable onPress={addToCart}>
+                    <Text
+                      style={{
+                        fontSize: 20,
+                        color: "white",
+                        paddingHorizontal: 10,
+                        fontWeight: "600",
+                      }}
+                    >
+                      +
+                    </Text>
+                  </Pressable>
+                </Pressable>) : ()
+							}
 							<Pressable
 								onPress={() => setCart([...cart, item])}
 								style={styles.cartButton}>
