@@ -14,7 +14,15 @@ const PizzaComponent = ({ pizza }) => {
 		const ItemPresent = cart.find((item) => item.id === pizza.id);
 
 		if (ItemPresent) {
+			setCart(
+				cart.map((x) =>
+					x.id === pizza.id
+						? { ...ItemPresent, quantity: ItemPresent.quantity + 1 }
+						: x
+				)
+			);
 		} else {
+			setCart([...cart, { quantity: 1 }]);
 		}
 	};
 
