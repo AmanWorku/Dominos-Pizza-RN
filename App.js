@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { BasketContext } from "./Context";
 import HomeScreen from "./screens/HomeScreen";
 import StackNavigator from "./StackNavigator";
@@ -7,14 +8,16 @@ import StackNavigator from "./StackNavigator";
 export default function App() {
 	return (
 		<BasketContext>
-			<StackNavigator />
+			<SafeAreaView style={styles.droidSafeArea}>
+				<StackNavigator />
+			</SafeAreaView>
 		</BasketContext>
 	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+	droidSafeArea: {
+		flex: 1,
+		paddingTop: Platform.OS === "android" ? 15 : 0,
+	},
 });

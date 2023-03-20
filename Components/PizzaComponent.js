@@ -26,7 +26,20 @@ const PizzaComponent = ({ pizza }) => {
 		}
 	};
 
-	const removeFromCart = () => {};
+	const removeFromCart = () => {
+		if (addItems === 1) {
+			setSelected(false);
+			setCart(cart.filter((x) => x.id === pizza.id));
+		} else {
+			setCart(
+				cart.map((x) =>
+					x.id === pizza.id
+						? { ...ItemPresent, quantity: ItemPresent.quantity + 1 }
+						: x
+				)
+			);
+		}
+	};
 
 	return (
 		<View>
