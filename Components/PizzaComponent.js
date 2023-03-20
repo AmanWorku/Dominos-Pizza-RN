@@ -11,6 +11,10 @@ const PizzaComponent = ({ pizza }) => {
 	const [addItems, setAddItems] = useState(0);
 	const addToCart = () => {
 		setSelected(true);
+
+		if (addItems === 0) {
+			setAddItems(1);
+		}
 		const ItemPresent = cart.find((item) => item.id === pizza.id);
 
 		if (ItemPresent) {
@@ -24,9 +28,12 @@ const PizzaComponent = ({ pizza }) => {
 		} else {
 			setCart([...cart, { quantity: 1 }]);
 		}
+		setAddItems(addItems + 1);
 	};
 
 	const removeFromCart = () => {
+		const ItemPresent = cart.find((item) => item.id === pizza.id);
+
 		if (addItems === 1) {
 			setSelected(false);
 			setCart(cart.filter((x) => x.id === pizza.id));
@@ -39,6 +46,7 @@ const PizzaComponent = ({ pizza }) => {
 				)
 			);
 		}
+		setAddItems(Math.max(0, addItems - 1));
 	};
 
 	return (
