@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import React, { useContext, useState } from "react";
 import ModalDropdown from "react-native-modal-dropdown";
 import { CartItems } from "../Context";
+import { Toast } from "react-native-root-toast";
 
 const PizzaComponent = ({ pizza }) => {
 	const options = ["Regular", "Medium", "Large"];
@@ -28,6 +29,10 @@ const PizzaComponent = ({ pizza }) => {
 		} else {
 			setCart([...cart, { quantity: 1 }]);
 		}
+		let toast = Toast.show("Added to cart", {
+			duration: Toast.duration.LONG,
+			position: Toast.position.BOTTOM,
+		});
 		setAddItems(addItems + 1);
 	};
 
