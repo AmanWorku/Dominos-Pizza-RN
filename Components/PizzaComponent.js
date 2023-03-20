@@ -96,7 +96,7 @@ const PizzaComponent = ({ pizza }) => {
 												paddingHorizontal: 5,
 												fontWeight: "600",
 											}}>
-											{additems}
+											{addItems}
 										</Text>
 									</Pressable>
 
@@ -113,9 +113,7 @@ const PizzaComponent = ({ pizza }) => {
 									</Pressable>
 								</Pressable>
 							) : (
-								<Pressable
-									onPress={() => setCart([...cart, item])}
-									style={styles.cartButton}>
+								<Pressable onPress={addToCart} style={styles.cartButton}>
 									<Text style={{ color: "white", fontWeight: "bold" }}>
 										Add To Cart
 									</Text>
